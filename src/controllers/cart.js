@@ -6,7 +6,7 @@ const { tokenVerify } = require("./middlewares");
 
 const router = express.Router();
 
-router.get("/user/cart/product", async (req, res) => {
+router.post("/user/cart/getproduct", async (req, res) => {
   const cat = await Cart.find();
   if (!cat) {
     return res.send("this category is not founded");
