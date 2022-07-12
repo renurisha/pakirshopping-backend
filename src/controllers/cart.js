@@ -6,15 +6,16 @@ const { tokenVerify } = require("./middlewares");
 
 const router = express.Router();
 
-router.post("/user/cart/getproduct", async (req, res) => {
+router.get("/user/cart/product", async (req, res) => {
   const cat = await Cart.find();
   if (!cat) {
     return res.send("this category is not founded");
   } else {
-    const categorylist = findCategoryList(cat);
+    // const categorylist = findCategoryList(cat);
+    
     return res.send({
       message: "successfully",
-      category: categorylist,
+      category: cat,
     });
   }
 });
