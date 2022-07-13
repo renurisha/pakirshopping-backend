@@ -81,8 +81,9 @@ router.post(
         return res
           .status(201)
           .send({ message: "login successfully.", data: user });
+      } else {
+        return res.status(202).send({ message: "invalid user..." });
       }
-      return res.status(202).send({ message: "invalid user..." });
     }
     return res.status(202).send({ message: "user doesn't exist..." });
   }
